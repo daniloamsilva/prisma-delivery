@@ -3,30 +3,10 @@ version: "3.9"
 services:
   database:
     image: postgres
-    container_name: prisma-delivery-database
-    restart: always
+    container_name: prisma-delivery
     ports:
       - 5432:5432
     environment:
       - POSTGRES_DB=${DB_DATABASE}
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
-    volumes:
-      - pgdata:/data/postgres
-    
-  app:
-    build: .
-    container_name: prisma-delivery-app
-    restart: always
-    ports:
-      - ${APP_PORT}:${APP_PORT}
-    volumes:
-      - .:/usr/app
-    links:
-      - database
-    depends_on:
-      - database
-
-volumes:
-  pgdata:
-    driver: local
