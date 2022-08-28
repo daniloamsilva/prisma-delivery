@@ -9,6 +9,6 @@ const createClientController = new CreateClientController();
 const authenticateClientController = new AuthenticateClientController();
 
 clientsRoutes.post("/", createClientController.handle);
-clientsRoutes.post("authenticate", authenticateClientController.handle);
+clientsRoutes.post("/authenticate", authenticateClientController.handle);
 
 export { clientsRoutes };
