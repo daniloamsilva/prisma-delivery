@@ -25,7 +25,7 @@ class AuthenticateDeliverymanUseCase {
     }
 
     return {
-      token: sign({ username }, process.env.APP_SECRET as string, {
+      token: sign({ username }, process.env.APP_DELIVERYMAN_SECRET as string, {
         subject: client.id,
         expiresIn: "1d",
       }),
